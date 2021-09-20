@@ -1,0 +1,40 @@
+version: '3.7'
+services:
+  prometheus:
+    build:
+      context: .
+      dockerfile: Dockerfile-prometheus
+    image: prom/prometheus:latest
+    user: root
+    container_name: prometheus
+    volumes:
+      - /media/velimirkojic/m2/docker/srv/docker/monitoring/prometheus/root-fs/etc:/etc/
+      - /media/velimirkojic/m2/docker/srv/docker/monitoring/prometheus/root-fs/prometheus:/prometheus/
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - 9090:9090
+    networks:
+      - prometheus
+    restart: always
+# Deploy Grafana
+  grafana:
+    image: grafana/grafana:latest
+    user: $UID:$GID
+    container_name: grafana
+    volumes:
+      - ./grafana/root-fs/data:/var/lib/grafana/
+      #- ./grafana/root-fs/config:/etc/grafana/
+    ports: 
+      - 3000:3000
+    networks: 
+      - prometheus
+    restart: always
+#Define network
+networks:
+  prometheus:
+    name: prometheus
+    driver: bridge

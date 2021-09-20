@@ -1,0 +1,14 @@
+ARG ARCH="amd64"
+ARG OS="linux"
+FROM prom/prometheus:latest
+#LABEL maintainer="The Prometheus Authors <prometheus-developers@googlegroups.com>"
+
+#COPY git/prometheus/console_libraries/                     /usr/share/prometheus/console_libraries/
+#COPY git/prometheus/consoles/                              /usr/share/prometheus/consoles/
+#COPY git/prometheus/LICENSE                                /LICENSE
+#COPY git/prometheus/NOTICE                                 /NOTICE
+
+#RUN ln -s /usr/share/prometheus/console_libraries /usr/share/prometheus/consoles/ /etc/prometheus/
+RUN mkdir -p /prometheus && \
+    chown -R nobody:nobody  /prometheus
+USER       nobody

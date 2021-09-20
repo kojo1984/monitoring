@@ -1,0 +1,5 @@
+FROM grafana/grafana:latest
+
+RUN mkdir -p /prometheus && \
+    chown -R nobody:nobody  /prometheus
+USER       nobody
