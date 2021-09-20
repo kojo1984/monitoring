@@ -8,7 +8,7 @@ services:
     user: root
     container_name: prometheus
     volumes:
-      - /srv/docker/prometheus/root-fs/etc:/etc/
+      - /srv/docker/monitoring/prometheus/root-fs/etc:/etc/
       - /srv/docker/monitoring/prometheus/root-fs/prometheus:/prometheus/
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -26,7 +26,7 @@ services:
     user: $UID:$GID
     container_name: grafana
     volumes:
-      - ./grafana/root-fs/data:/var/lib/grafana/
+      - /srv/docker/monitoring/grafana/root-fs/data:/var/lib/grafana/
       #- ./grafana/root-fs/config:/etc/grafana/
     ports: 
       - 3000:3000
