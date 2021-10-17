@@ -8,8 +8,8 @@ services:
     user: root
     container_name: prometheus
     volumes:
-      - /srv/docker/monitoring/prometheus/root-fs/etc:/etc/
-      - /srv/docker/monitoring/prometheus/root-fs/prometheus:/prometheus/
+      - /srv/docker/prometheus/prometheus/root-fs/etc:/etc/
+      - /srv/docker/prometheus/prometheus/root-fs/prometheus:/prometheus/
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
