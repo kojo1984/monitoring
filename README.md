@@ -3,4 +3,4 @@
 
 2. Download `deploy.sh` (https://github.com/kojo1984/prometheus/blob/main/deploy.sh) and make it executable wit `chmod +x deploy.sh`
 
-3. Go into `prometheus` directory, run `./deploy`.
+3. Run `./deploy`.
