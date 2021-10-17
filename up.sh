@@ -1,6 +1,6 @@
 #!/bin/bash
 export DPATH=$(pwd)
-export SERVICE=monitoring
+export SERVICE=prometheus
 export UID=$(id -u)
 export GID=$(id -g)
 chown -R $UID $SERVICE
