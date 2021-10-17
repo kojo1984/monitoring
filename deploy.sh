@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir -p /srv/docker/monitoring
+mkdir -p /srv/docker/prometheus
 git clone https://github.com/kojo1984/prometheus.git
-chmmod +x monitoring/*.sh
-monitoring/up.sh
+chmod +x prometheus/*.sh
+prometheus/up.sh
