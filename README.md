@@ -5,3 +5,5 @@
 4. Run `monitoring/up.sh`
 
 You will need to install _node exporter_ on a server that you want to monitor and add remote server to _/etc/prometheus/targets.d/node.yml_ (location within Prometheus container).
+
+Connect Grafana to Prometheus (Prometheus instance is called _prometheus_), add dashboards.
