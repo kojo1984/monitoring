@@ -10,6 +10,7 @@ services:
     volumes:
       - /srv/docker/monitoring/prometheus/root-fs/etc:/etc/
       - /srv/docker/monitoring/prometheus/root-fs/prometheus:/prometheus/
+      - /etc/localtime:/etc/localtime:ro
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -27,6 +28,7 @@ services:
     container_name: grafana
     volumes:
       - /srv/docker/monitoring/grafana/root-fs/data:/var/lib/grafana/
+      - /etc/localtime:/etc/localtime:ro
       #- ./grafana/root-fs/config:/etc/grafana/
     ports: 
       - 3000:3000
